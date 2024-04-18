@@ -1,0 +1,294 @@
+//import { MapPinIcon } from '@heroicons/react/24/solid';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+
+const Purchases = () => {
+  const { register, handleSubmit, reset } = useForm();
+  const [isSubmitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (formData) => {
+    console.log(formData); // Log the form data
+    setSubmitting(true);
+
+    try {
+      const response = await axios.post("http://172.31.81.176:8000/item/", {
+        name: formData.name,
+        price: formData.price,
+        location: formData.location,
+        type: formData.type,
+        month: formData.month,
+        day: formData.day,
+        year: formData.year,
+      });
+
+      if (response.status === 201) {
+        console.log("Form submitted successfully:", response.data);
+        // Reset the form after successful submission
+        reset();
+      } else {
+        console.error("Form submission failed:", response.data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-black text-2xl">
+        Contact
+      </h3>
+      <div className="flex flex-col space-y-10">
+        <h4 className="text-4xl text-black font-semibold text-center">
+          So... what do you think?{" "}
+          <span className="decoration-[#f7ab0a]/50 underline">Let us know</span>{" "}
+          down below!
+        </h4>
+        <div className="space-y-10">
+          <div className="flex items-center space-x-5 justify-center">
+            {/* <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" /> */}
+            <p className="text-2xl text-black">New Brunswick, NJ</p>
+          </div>
+        </div>
+        <form
+          className="flex flex-col space-y-2 w-fit mx-auto"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="flex space-x-2">
+            <input
+              className="contactInput bg-black placeholder-white"
+              type="text"
+              {...register("name")}
+              placeholder="Name of Expense"
+            />
+            <input
+              className="contactInput bg-black placeholder-white"
+              type="text"
+              {...register("price")}
+              placeholder="$ Price of Expense"
+            />
+            <select
+              className="contactInput bg-black placeholder-white"
+              {...register("location")}
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Select Location
+              </option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="DC">Washington, D.C.</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+          <div className="flex space-x-2">
+            <select
+              className="contactInput bg-black placeholder-white"
+              {...register("type")}
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Type of Expense
+              </option>
+              <option>Personal</option>
+              <option>Employees</option>
+              <option>Rent</option>
+              <option>Supplies</option>
+              <option>Equipment</option>
+              <option>Utilities</option>
+              <option>Insurance</option>
+              <option>Marketing</option>
+              <option>Advertising</option>
+              <option>Travel</option>
+              <option>Professional Services</option>
+              <option>Repairs and Maintenance</option>
+              <option>Software and Subscriptions</option>
+            </select>
+            <div className="flex space-x-2">
+              <select
+                className="contactInput bg-black placeholder-white"
+                {...register("month")}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Month
+                </option>
+                <option>Jan</option>
+                <option>Feb</option>
+                <option>Mar</option>
+                <option>Apr</option>
+                <option>May</option>
+                <option>Jun</option>
+                <option>Jul</option>
+                <option>Aug</option>
+                <option>Sep</option>
+                <option>Oct</option>
+                <option>Nov</option>
+                <option>Dec</option>
+              </select>
+              <select
+                className="contactInput bg-black placeholder-white"
+                {...register("day")}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Day
+                </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+              <select
+                className="contactInput bg-black placeholder-white"
+                {...register("year")}
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Year
+                </option>
+                <option>2025</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option>2009</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2006</option>
+                <option>2005</option>
+                <option>2004</option>
+                <option>2003</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1999</option>
+                <option>1998</option>
+                <option>1997</option>
+                <option>1996</option>
+                <option>1995</option>
+                <option>1994</option>
+                <option>1993</option>
+                <option>1992</option>
+                <option>1991</option>
+                <option>1990</option>
+                <option>1989</option>
+                <option>1988</option>
+                <option>1987</option>
+                <option>1986</option>
+                <option>1985</option>
+                <option>1984</option>
+                <option>1983</option>
+                <option>1982</option>
+                <option>1981</option>
+                <option>1980</option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            className={`bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg ${
+              isSubmitting
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:opacity-80"
+            }`}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Purchases;
