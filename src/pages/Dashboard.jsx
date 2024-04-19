@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from "../components/BackgroundCircles"
+import { Link } from "react-router-dom";
+import { navigation } from "../constants";
+import taxCutImage from "../assets/taxCut.jpg"
 
 const Dashboard = () => {
     const [text, count] = useTypewriter({
@@ -14,11 +17,12 @@ const Dashboard = () => {
     });
 
     return (
-        <div className='bg-[#fff8e7] h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
+        <div className='bg-[#cff3ff] h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
+            {/* c2eefc */}
             <BackgroundCircles />
             <img
                 className='relative rounded-full h-32 w-32 mx-auto object-cover'
-                src="/logo.jpg"
+                src={taxCutImage}
                 alt="profile pic"
             />
             <div className='z-20'>
@@ -31,21 +35,12 @@ const Dashboard = () => {
                 </h1>
 
                 <div className='pt-5'>
-                    <button className='heroButton bg-black text-[#fff8e7]' onClick={() => { window.location.href = '#about'; }}>
-                        About
-                    </button>
-                    {/*<button className='heroButton bg-[#2be6f0]' onClick={() => { window.location.href = '#experience'; }}>
-                        Experience
-                    </button>
-                    <button className='heroButton bg-[#2be6f0]' onClick={() => { window.location.href = '#skills'; }}>
-                        Skills
-                    </button>*/}
-                    <button className='heroButton bg-black text-[#fff8e7]' onClick={() => { window.location.href = '#projects'; }}>
-                        Projects
-                    </button>
-                    <button className='heroButton bg-black text-[#fff8e7]' onClick={() => { window.location.href = '#contact'; }}>
-                        Contact Us
-                    </button>
+                    <Link to='/purchases' className='heroButton bg-black text-[#fff8e7]'>
+                        Purchases
+                    </Link>
+                    <Link to='/expenses' className='heroButton bg-black text-[#fff8e7]'>
+                        Expenses
+                    </Link>
                 </div>
             </div>
         </div>

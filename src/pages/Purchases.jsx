@@ -133,7 +133,7 @@ const Purchases = () => {
           </div>
           <div className="flex space-x-2">
             <select
-              className="contactInput bg-black placeholder-white"
+              className="contactInput bg-black placeholder-white w-1/2"
               {...register("type")}
               defaultValue=""
             >
@@ -154,9 +154,9 @@ const Purchases = () => {
               <option>Repairs and Maintenance</option>
               <option>Software and Subscriptions</option>
             </select>
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 w-1/2">
               <select
-                className="contactInput bg-black placeholder-white"
+                className="contactInput bg-black placeholder-white w-11/30"
                 {...register("month")}
                 defaultValue=""
               >
@@ -177,7 +177,7 @@ const Purchases = () => {
                 <option>Dec</option>
               </select>
               <select
-                className="contactInput bg-black placeholder-white"
+                className="contactInput bg-black placeholder-white w-8/30"
                 {...register("day")}
                 defaultValue=""
               >
@@ -217,7 +217,7 @@ const Purchases = () => {
                 <option>31</option>
               </select>
               <select
-                className="contactInput bg-black placeholder-white"
+                className="contactInput bg-black placeholder-white w-11/30"
                 {...register("year")}
                 defaultValue=""
               >
