@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { navigation } from "../constants";
+import taxCutImage from "../assets/taxCut.jpg"
 
 const Header = () => {
   const pathname = useLocation();
@@ -15,6 +16,13 @@ const Header = () => {
       <nav className="container flex items-center justify-between py-7">
         <Link to="/" className="text-2xl font-bold text-gray-400 hover:text-blue-400 ease-in-out duration-300">
           TaxCut
+        </Link>
+        <Link to = "/" className = "hover:opacity-70 ease-in-out duration-300">
+          <img
+            className='absolute left-[15.5rem] top-[1.2rem] rounded-full h-12 w-12 mx-auto object-cover'
+            src={taxCutImage}
+            alt="profile pic"
+          />
         </Link>
         <ul
           className={`${
