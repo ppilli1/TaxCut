@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import micButton from "../assets/mic.webp"
-
+import monopolyMan from "../assets/monopolyMan.png";
+import monoMan from "../assets/monoMan.png";
 
 const Customer = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -39,280 +39,52 @@ const Customer = () => {
   };
 
   return (
-    <div className = "bg-[#cff3ff] min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="bg-[#cff3ff] min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <h3 className="absolute top-36 uppercase tracking-[20px] text-black text-2xl">
-        Expenses Advisor Form
+        Customer Profile Creator
       </h3>
-    <div className="w-1/2">
-      <button className="text-black text-2xl text-bold items-center justify-center absolute left-[23rem] bottom-[31rem] hover:opacity-70 ease-in-out duration-300">
-        <img 
-          src = {micButton}
-          alt = "mic button"
-          width = {100}
-          height = {100}
-        />
-      </button>
-      <div className="absolute bottom-[5rem] left-[4rem] flex flex-col space-y-10">
-        <h4 className="text-4xl text-black font-semibold text-center">
-          Add any additional information you want <br/> your{" "}
-          <span className="decoration-[#f7ab0a]/50 underline">financial</span>{" "}
-          advisor to know...
-        </h4>
-        {/*<div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
-            <p className="text-2xl text-black">New Brunswick, NJ</p>
-          </div>
-        </div>*/}
-        <div dir="ltr">
-        <form
-          className="flex flex-col space-y-2 w-fit mx-auto"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="flex space-x-2">
-            <input
-              className="contactInput bg-black placeholder-gray-500 rounded-xl"
-              type="text"
-              {...register("name")}
-              placeholder="Name of Expense"
-            />
-            <input
-              className="contactInput bg-black placeholder-gray-500 rounded-xl"
-              type="number"
-              {...register("price")}
-              placeholder="$ Price of Expense"
-            />
-            <select
-              className="contactInput bg-black placeholder-white rounded-xl"
-              {...register("location")}
-              defaultValue=""
-            >
-              <option value="" disabled hidden>
-                Select Location
-              </option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="DC">Washington, D.C.</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
-          </div>
-          <div className="flex space-x-2">
-            <select
-              className="contactInput bg-black placeholder-white w-1/2 rounded-xl"
-              {...register("type")}
-              defaultValue=""
-            >
-              <option value="" disabled hidden>
-                Type of Expense
-              </option>
-              <option>Personal</option>
-              <option>Employees</option>
-              <option>Rent</option>
-              <option>Supplies</option>
-              <option>Equipment</option>
-              <option>Utilities</option>
-              <option>Insurance</option>
-              <option>Marketing</option>
-              <option>Advertising</option>
-              <option>Travel</option>
-              <option>Professional Services</option>
-              <option>Repairs and Maintenance</option>
-              <option>Software and Subscriptions</option>
-            </select>
-            <div className="flex space-x-1 w-1/2">
-              <select
-                className="contactInput bg-black placeholder-white w-11/30 rounded-xl"
-                {...register("month")}
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Month
-                </option>
-                <option>Jan</option>
-                <option>Feb</option>
-                <option>Mar</option>
-                <option>Apr</option>
-                <option>May</option>
-                <option>Jun</option>
-                <option>Jul</option>
-                <option>Aug</option>
-                <option>Sep</option>
-                <option>Oct</option>
-                <option>Nov</option>
-                <option>Dec</option>
-              </select>
-              <select
-                className="contactInput bg-black placeholder-white w-8/30 rounded-xl"
-                {...register("day")}
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Day
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>28</option>
-                <option>29</option>
-                <option>30</option>
-                <option>31</option>
-              </select>
-              <select
-                className="contactInput bg-black placeholder-white w-11/30 rounded-xl"
-                {...register("year")}
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Year
-                </option>
-                <option>2025</option>
-                <option>2024</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-                <option>2009</option>
-                <option>2008</option>
-                <option>2007</option>
-                <option>2006</option>
-                <option>2005</option>
-                <option>2004</option>
-                <option>2003</option>
-                <option>2002</option>
-                <option>2001</option>
-                <option>2000</option>
-                <option>1999</option>
-                <option>1998</option>
-                <option>1997</option>
-                <option>1996</option>
-                <option>1995</option>
-                <option>1994</option>
-                <option>1993</option>
-                <option>1992</option>
-                <option>1991</option>
-                <option>1990</option>
-                <option>1989</option>
-                <option>1988</option>
-                <option>1987</option>
-                <option>1986</option>
-                <option>1985</option>
-                <option>1984</option>
-                <option>1983</option>
-                <option>1982</option>
-                <option>1981</option>
-                <option>1980</option>
-              </select>
-            </div>
-          </div>
-
-          <button
-            className={`bg-[#f7ab0a] py-5 px-10 rounded-xl text-black font-bold text-lg ${
-              isSubmitting
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:opacity-70 ease-in-out duration-300"
-            }`}
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-        </div>
-      </div>
       <div>
-        
+        <img
+          className="absolute left-[12rem] bottom-[8rem]"
+          src={monopolyMan}
+          alt="mic button"
+          width={400}
+          height={400}
+        />
       </div>
-    </div>
-    <h4 className="text-lg text-black font-semibold text-center absolute bottom-[40rem] right-[19.5rem] decoration-[#f7ab0a]/50 underline">
-          Your AI Transcript
-        </h4>
-    <textarea
-      className="contactInput bg-black placeholder-white absolute right-[12rem] bottom-[4rem] w-[25rem] h-[35rem] rounded-3xl"
-      {...register('feedback')}
-      // Make sure to change the ...register to what seems to become a get request from the AI API so that the AI transcript/output can be rendered
-      placeholder="Bro"
-    />
+
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Noteworthy technology acquisitions 2021
+          </h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so
+          far, in reverse chronological order.
+        </p>
+        <a
+          href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Read more
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 };
