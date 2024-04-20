@@ -12,7 +12,7 @@ const Purchases = () => {
     setSubmitting(true);
 
     try {
-      const response = await axios.post("http://172.31.81.176:8000/item/", {
+      const response = await axios.post("http://172.23.27.21:8000/item/", {
         name: formData.name,
         price: formData.price,
         location: formData.location,
@@ -37,22 +37,26 @@ const Purchases = () => {
   };
 
   return (
-    <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-black text-2xl">
-        Contact
+    <div className="bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <div className = "text-black">
+        <p className="text-black text-2xl text-bold absolute top-60 left-72">BRO</p>
+      </div>
+      <h3 className="absolute top-36 uppercase tracking-[20px] text-black text-2xl">
+        Additional Information Form
       </h3>
-      <div className="flex flex-col space-y-10">
+      <div className="absolute bottom-15 left-15 flex flex-col space-y-10">
         <h4 className="text-4xl text-black font-semibold text-center">
-          So... what do you think?{" "}
-          <span className="decoration-[#f7ab0a]/50 underline">Let us know</span>{" "}
-          down below!
+          Add any additional information you want <br/> your financial advisor to know...{" "}
+          <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
+          ?
         </h4>
-        <div className="space-y-10">
+        {/*<div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            {/* <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" /> */}
+            <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
             <p className="text-2xl text-black">New Brunswick, NJ</p>
           </div>
-        </div>
+        </div>*/}
+        <div dir="ltr">
         <form
           className="flex flex-col space-y-2 w-fit mx-auto"
           onSubmit={handleSubmit(onSubmit)}
@@ -286,6 +290,10 @@ const Purchases = () => {
             {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
+        </div>
+      </div>
+      <div>
+        
       </div>
     </div>
   );

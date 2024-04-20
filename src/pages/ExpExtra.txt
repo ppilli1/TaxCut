@@ -37,26 +37,21 @@ const Expenses = () => {
   };
 
   return (
-    <div className="bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className = "text-black">
-        <p className="text-black text-2xl text-bold">BRO</p>
-      </div>
+    <>
+    {/* <div className="w-1/2 border bg-white"> */}
+    <div className= "relative w-1/2 bottom-100 text-white z-10 ">BRO</div>
+    <div className="absolute w-1/2 h-full bg-[#ffffff] border-5 border-black z-2">
+        
+
       <h3 className="absolute top-48 uppercase tracking-[20px] text-black text-2xl">
         Expenses Form
       </h3>
-      <div className="flex flex-col space-y-10">
+      <div className="absolute space-y-10 bottom-500">
         <h4 className="text-4xl text-black font-semibold text-center">
           Do you want to avoid taxes...{" "}
           <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
           ?
         </h4>
-        {/*<div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
-            <p className="text-2xl text-black">New Brunswick, NJ</p>
-          </div>
-        </div>*/}
-        <div dir="ltr">
         <form
           className="flex flex-col space-y-2 w-fit mx-auto"
           onSubmit={handleSubmit(onSubmit)}
@@ -292,7 +287,8 @@ const Expenses = () => {
         </form>
         </div>
       </div>
-    </div>
+      {/* </div> */}
+      </>
   );
 };
 

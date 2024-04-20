@@ -44,7 +44,7 @@ const Expenses = () => {
       <h3 className="absolute top-48 uppercase tracking-[20px] text-black text-2xl">
         Expenses Form
       </h3>
-      <div className="flex flex-col space-y-10">
+      <div className="absolute flex flex-col space-y-10">
         <h4 className="text-4xl text-black font-semibold text-center">
           Do you want to avoid taxes...{" "}
           <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
