@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-const Expenses = () => {
+const Purchases = () => {
   const { register, handleSubmit, reset } = useForm();
   const [isSubmitting, setSubmitting] = useState(false);
 
@@ -37,16 +37,15 @@ const Expenses = () => {
   };
 
   return (
-    <div className="bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className = "text-black">
-        <p className="text-black text-2xl text-bold">BRO</p>
-      </div>
-      <h3 className="absolute top-48 uppercase tracking-[20px] text-black text-2xl">
-        Expenses Form
+    <div className = "bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <h3 className="absolute top-36 uppercase tracking-[20px] text-black text-2xl">
+        Additional Information Form
       </h3>
-      <div className="absolute flex flex-col space-y-10">
+    <div className="w-1/2">
+      <button className="text-black text-2xl text-bold items-center justify-center">BRO</button>
+      <div className="absolute bottom-0 left-0 flex flex-col space-y-10">
         <h4 className="text-4xl text-black font-semibold text-center">
-          Do you want to avoid taxes...{" "}
+          Add any additional information you want <br/> your financial advisor to know...{" "}
           <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
           ?
         </h4>
@@ -292,8 +291,15 @@ const Expenses = () => {
         </form>
         </div>
       </div>
+      <div>
+        
+      </div>
+    </div>
+    <div className = "w-1/2">
+      <p className = "text-black items-center justify-center">BRO</p>
+    </div>
     </div>
   );
 };
 
-export default Expenses;
+export default Purchases;

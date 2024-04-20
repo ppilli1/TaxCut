@@ -37,14 +37,13 @@ const Purchases = () => {
   };
 
   return (
-    <div className="bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className = "text-black">
-        <p className="text-black text-2xl text-bold absolute top-60 left-72">BRO</p>
-      </div>
+    <div className = "bg-[#fff8e7] min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <h3 className="absolute top-36 uppercase tracking-[20px] text-black text-2xl">
         Additional Information Form
       </h3>
-      <div className="absolute bottom-15 left-15 flex flex-col space-y-10">
+    <div className="w-1/2">
+      <button className="text-black text-2xl text-bold items-center justify-center">BRO</button>
+      <div className="absolute bottom-0 left-0 flex flex-col space-y-10">
         <h4 className="text-4xl text-black font-semibold text-center">
           Add any additional information you want <br/> your financial advisor to know...{" "}
           <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
@@ -295,6 +294,10 @@ const Purchases = () => {
       <div>
         
       </div>
+    </div>
+    <div className = "w-1/2">
+      <p className = "text-black items-center justify-center">BRO</p>
+    </div>
     </div>
   );
 };
