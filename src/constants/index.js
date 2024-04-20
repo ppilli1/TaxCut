@@ -44,13 +44,18 @@ import {
     },
     {
       id: "1",
-      title: "Purchases",
-      url: "purchases",
+      title: "Customer",
+      url: "customer",
     },
     {
       id: "2",
       title: "Expenses",
       url: "expenses",
+    },
+    {
+      id: "3",
+      title: "Recovery",
+      url: "recovery",
     }
   ];
   

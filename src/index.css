@@ -24,6 +24,13 @@
   .contactInput {
   @apply outline-none bg-black rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 transition-all focus:border-[#f7ab0a]/40 focus:text-white hover:border-[#f7ab0a]/40;
 }
+.contactInput:focus {
+  @apply text-white;
+}
+
+.contactInput:not(:focus) {
+  @apply text-gray-500;
+}
 }
 
 @layer base {

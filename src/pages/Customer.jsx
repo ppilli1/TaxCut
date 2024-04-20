@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import micButton from "../assets/mic.webp"
 
-const Expenses = () => {
+
+const Customer = () => {
   const { register, handleSubmit, reset } = useForm();
   const [isSubmitting, setSubmitting] = useState(false);
 
@@ -37,40 +39,51 @@ const Expenses = () => {
   };
 
   return (
-    <>
-    {/* <div className="w-1/2 border bg-white"> */}
-    <div className= "relative w-1/2 bottom-100 text-white z-10 ">BRO</div>
-    <div className="absolute w-1/2 h-full bg-[#ffffff] border-5 border-black z-2">
-        
-
-      <h3 className="absolute top-48 uppercase tracking-[20px] text-black text-2xl">
-        Expenses Form
+    <div className = "bg-[#cff3ff] min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <h3 className="absolute top-36 uppercase tracking-[20px] text-black text-2xl">
+        Expenses Advisor Form
       </h3>
-      <div className="absolute space-y-10 bottom-500">
+    <div className="w-1/2">
+      <button className="text-black text-2xl text-bold items-center justify-center absolute left-[23rem] bottom-[31rem] hover:opacity-70 ease-in-out duration-300">
+        <img 
+          src = {micButton}
+          alt = "mic button"
+          width = {100}
+          height = {100}
+        />
+      </button>
+      <div className="absolute bottom-[5rem] left-[4rem] flex flex-col space-y-10">
         <h4 className="text-4xl text-black font-semibold text-center">
-          Do you want to avoid taxes...{" "}
-          <span className="decoration-[#f7ab0a]/50 underline">legally</span>{" "}
-          ?
+          Add any additional information you want <br/> your{" "}
+          <span className="decoration-[#f7ab0a]/50 underline">financial</span>{" "}
+          advisor to know...
         </h4>
+        {/*<div className="space-y-10">
+          <div className="flex items-center space-x-5 justify-center">
+            <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
+            <p className="text-2xl text-black">New Brunswick, NJ</p>
+          </div>
+        </div>*/}
+        <div dir="ltr">
         <form
           className="flex flex-col space-y-2 w-fit mx-auto"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex space-x-2">
             <input
-              className="contactInput bg-black placeholder-white"
+              className="contactInput bg-black placeholder-gray-500 rounded-xl"
               type="text"
               {...register("name")}
               placeholder="Name of Expense"
             />
             <input
-              className="contactInput bg-black placeholder-white"
-              type="text"
+              className="contactInput bg-black placeholder-gray-500 rounded-xl"
+              type="number"
               {...register("price")}
               placeholder="$ Price of Expense"
             />
             <select
-              className="contactInput bg-black placeholder-white"
+              className="contactInput bg-black placeholder-white rounded-xl"
               {...register("location")}
               defaultValue=""
             >
@@ -132,7 +145,7 @@ const Expenses = () => {
           </div>
           <div className="flex space-x-2">
             <select
-              className="contactInput bg-black placeholder-white w-1/2"
+              className="contactInput bg-black placeholder-white w-1/2 rounded-xl"
               {...register("type")}
               defaultValue=""
             >
@@ -153,9 +166,9 @@ const Expenses = () => {
               <option>Repairs and Maintenance</option>
               <option>Software and Subscriptions</option>
             </select>
-            <div className="flex space-x-2 w-1/2">
+            <div className="flex space-x-1 w-1/2">
               <select
-                className="contactInput bg-black placeholder-white w-11/30"
+                className="contactInput bg-black placeholder-white w-11/30 rounded-xl"
                 {...register("month")}
                 defaultValue=""
               >
@@ -176,7 +189,7 @@ const Expenses = () => {
                 <option>Dec</option>
               </select>
               <select
-                className="contactInput bg-black placeholder-white w-8/30"
+                className="contactInput bg-black placeholder-white w-8/30 rounded-xl"
                 {...register("day")}
                 defaultValue=""
               >
@@ -216,7 +229,7 @@ const Expenses = () => {
                 <option>31</option>
               </select>
               <select
-                className="contactInput bg-black placeholder-white w-11/30"
+                className="contactInput bg-black placeholder-white w-11/30 rounded-xl"
                 {...register("year")}
                 defaultValue=""
               >
@@ -274,10 +287,10 @@ const Expenses = () => {
           </div>
 
           <button
-            className={`bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg ${
+            className={`bg-[#f7ab0a] py-5 px-10 rounded-xl text-black font-bold text-lg ${
               isSubmitting
                 ? "opacity-50 cursor-not-allowed"
-                : "hover:opacity-80"
+                : "hover:opacity-70 ease-in-out duration-300"
             }`}
             type="submit"
             disabled={isSubmitting}
@@ -287,9 +300,21 @@ const Expenses = () => {
         </form>
         </div>
       </div>
-      {/* </div> */}
-      </>
+      <div>
+        
+      </div>
+    </div>
+    <h4 className="text-lg text-black font-semibold text-center absolute bottom-[40rem] right-[19.5rem] decoration-[#f7ab0a]/50 underline">
+          Your AI Transcript
+        </h4>
+    <textarea
+      className="contactInput bg-black placeholder-white absolute right-[12rem] bottom-[4rem] w-[25rem] h-[35rem] rounded-3xl"
+      {...register('feedback')}
+      // Make sure to change the ...register to what seems to become a get request from the AI API so that the AI transcript/output can be rendered
+      placeholder="Bro"
+    />
+    </div>
   );
 };
 
-export default Expenses;
+export default Customer;

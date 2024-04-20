@@ -1,15 +1,16 @@
 import Dashboard from "../pages/Dashboard"
+import Customer from "../pages/Customer"
 import Expenses from "../pages/Expenses"
-import Purchases from "../pages/Purchases"
-
+import Recovery from "../pages/Recovery"
 import {Routes, Route} from "react-router-dom"
 
 const Routers = () => {
   return <Routes>
     <Route path = "/" element = {<Dashboard/>}/>
     <Route path = "/dashboard" element = {<Dashboard/>}/>
-    <Route path = "/purchases" element = {<Purchases/>}/>
     <Route path = "/expenses" element = {<Expenses/>}/>
+    <Route path = "/customer" element = {<Customer/>}/>
+    <Route path = "/recovery" element = {<Recovery/>}/>
   </Routes>
 }
 
