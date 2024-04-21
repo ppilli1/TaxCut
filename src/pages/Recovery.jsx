@@ -43,13 +43,18 @@ const Recovery = () => {
         Recovery Claim Form
       </h3>
       <div className="w-1/2">
-        <div className="absolute top-[15rem] left-[6rem] flex flex-col space-y-10">
-          <h4 className="text-4xl text-black font-semibold text-center">
+        <div className="absolute top-[13rem] left-[10rem] flex flex-col space-y-8">
+          <h4 className="text-3xl text-black font-semibold text-center">
             Tell Us About{" "}
             <span className="decoration-[#f7ab0a]/50 underline">Your</span>{" "}
             Experience:
           </h4>
-          
+          <textarea
+            className="contactInput bg-black placeholder-white w-[32rem] h-[30rem] rounded-3xl border-2"
+            {...register("feedback")}
+            // Make sure to change the ...register to what seems to become a get request from the AI API so that the AI transcript/output can be rendered
+            placeholder="Bro"
+          />
           <button
             className={`bg-[#f7ab0a] py-5 px-10 rounded-xl text-black font-bold text-lg ${
               isSubmitting
@@ -64,9 +69,9 @@ const Recovery = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="absolute top-[15rem] right-[20rem] rounded-full bg-black h-36 w-36 text-center flex items-center justify-center">Cir</div>
-        <div className="absolute top-[28rem] right-[20rem] rounded-full bg-black h-36 w-36 text-center flex items-center justify-center">Cir</div>
-        <div className="absolute top-[41rem] right-[20rem] rounded-full bg-black h-36 w-36 text-center flex items-center justify-center">Cir</div>
+        <button className="absolute top-[15rem] right-[20rem] rounded-full bg-black text-[#cff3ff] h-36 w-36 text-center flex items-center justify-center">Circle</button>
+        <button className="absolute top-[28rem] right-[20rem] rounded-full bg-black text-[#cff3ff] h-36 w-36 text-center flex items-center justify-center">Circle</button>
+        <button className="absolute top-[41rem] right-[20rem] rounded-full bg-black text-[#cff3ff] h-36 w-36 text-center flex items-center justify-center">Circle</button>
       </div>
     </div>
   );

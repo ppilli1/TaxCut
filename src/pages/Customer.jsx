@@ -122,7 +122,7 @@ const Customer = () => {
         <button
           //make sure to add an onClick function for each of these buttons to open up modals
           onClick={() => document.getElementById("create_modal").showModal()}
-          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3] focus:ring-4 focus:outline-none focus:ring-[#cff3ff]"
+          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3]"
         >
           Click Here
           <svg
@@ -287,7 +287,7 @@ const Customer = () => {
         <button
           //make sure to add an onClick function for each of these buttons to open up modals
           onClick={() => document.getElementById("loans_modal").showModal()}
-          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3] focus:ring-4 focus:outline-none focus:ring-[#cff3ff]"
+          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3]"
         >
           Click Here
           <svg
@@ -516,7 +516,7 @@ const Customer = () => {
         <button
           //make sure to add an onClick function for each of these buttons to open up modals
           onClick={() => document.getElementById("bills_modal").showModal()}
-          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3] focus:ring-4 focus:outline-none focus:ring-[#cff3ff]"
+          className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#cff3ff] rounded-lg hover:bg-[#a6d4e3]"
         >
           Click Here
           <svg
