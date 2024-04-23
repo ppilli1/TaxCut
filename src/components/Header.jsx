@@ -27,7 +27,7 @@ const Header = () => {
         <ul
           className={`${
             openNavigation ? "block" : "hidden"
-          } lg:flex lg:items-center`}
+          } lg:flex lg:items-center space-x-15`}
         >
           {navigation.map((item) => (
             <li key={item.id} className="mr-4 lg:mr-6">

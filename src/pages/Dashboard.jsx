@@ -4,13 +4,15 @@ import BackgroundCircles from "../components/BackgroundCircles"
 import { Link } from "react-router-dom";
 import { navigation } from "../constants";
 import taxCutImage from "../assets/taxCut.jpg"
+import {MouseParallax} from "react-just-parallax"
+import { BgCircles } from '../components/BgCircles';
 
 const Dashboard = () => {
     const [text, count] = useTypewriter({
         words: [
             "< Hey there! Welcome to TaxCut! />",
-            "A product designed to help you minimize taxes and maximize recovery/aid!",
-            "Empowers entrepreneurs to navigate the labyrinth of tax codes!",
+            "Minimize taxes and maximize recovery/aid!",
+            "Navigate the labyrinth of tax codes!",
         ],
         loop: true,
         delaySpeed: 1000,
@@ -20,6 +22,7 @@ const Dashboard = () => {
         <div className='bg-[#cff3ff] h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
             {/* c2eefc */}
             <BackgroundCircles />
+            <BgCircles/>
             <img
                 className='relative rounded-full h-32 w-32 mx-auto object-cover'
                 src={taxCutImage}
@@ -34,7 +37,7 @@ const Dashboard = () => {
                     <Cursor cursorColor="#F7AB0A" />
                 </h1>
 
-                <div className='pt-5'>
+                <div className='pt-5 space-x-5'>
                     <Link to='/customer' className='heroButton bg-black text-[#fff8e7]'>
                         Customer
                     </Link>

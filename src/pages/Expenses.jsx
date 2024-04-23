@@ -1,5 +1,5 @@
 //import { MapPinIcon } from '@heroicons/react/24/solid';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import micButton from "../assets/mic.webp"
@@ -43,7 +43,7 @@ const speech_config = SpeechConfig.fromSubscription(subscriptionKey, serviceRegi
 const audio_config = AudioConfig.fromDefaultSpeakerOutput();
 const s_synth = new SpeechSynthesizer(speech_config, audio_config);
 
-const key = "sk-proj-2ee4FDzZ1BwgtmATcG1aT3BlbkFJsp6nOCkjP7v3xHHYzkBq";
+const key = "sk-proj-IpqqiGb9ko2PcPXewggBT3BlbkFJurR3ulwxZBfvPU4p19oi";
 
 
 const Expenses = () => {
@@ -52,6 +52,8 @@ const Expenses = () => {
   const [inputString, setInputString] = useState('');
   const [aiString, setAiString] = useState('');
   const [displayText, setDisplayText] = useState('INITIALIZED: ready to test speech...');
+  const [tt, setTt] = useState('');
+  const [tt2, setTt2] = useState('');
   const [messages, setMessages] = useState([
     {
       message: inputString
@@ -105,7 +107,6 @@ const Expenses = () => {
     });
   
 
-  
 
     // await fetch("./disasterDataSets.pdf")
     //   .then(response => response.blob())
@@ -116,15 +117,56 @@ const Expenses = () => {
 
     //   });
 
-
-
-
-
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow"
+    };
     
+    await fetch("http://127.0.0.1:8000/api/customers/", requestOptions)
+      .then(response => response.json()) // Convert the response to JSON
+      .then(data => {
+        const jsonString = JSON.stringify(data); // Convert JSON data to string
+        // Now you can store `jsonString` in a state variable or do whatever you want with it
+
+        setTt(jsonString); // Just to demonstrate, you can replace this with your desired action
+      })
+    
+    
+
+      
+      .catch((error) => console.error(error));
+
+
+
+    console.log(tt);
+
+
+    await fetch("http://127.0.0.1:8000/api/bills/", requestOptions)
+      .then(response => response.json()) // Convert the response to JSON
+      .then(data => {
+        const jsonString = JSON.stringify(data); // Convert JSON data to string
+        // Now you can store `jsonString` in a state variable or do whatever you want with it
+
+        setTt2(jsonString); // Just to demonstrate, you can replace this with your desired action
+      })
+    
+    
+
+      
+      .catch((error) => console.error(error));
+
+
+
+    console.log(tt2);
+
+
     // fake
     const chatHistory = [
+      new HumanMessage(tt),
+      new HumanMessage(tt2),
       new HumanMessage(text),
       new HumanMessage("My last name is Patel")
+
 
     ];
 
@@ -172,7 +214,7 @@ const Expenses = () => {
         Expenses Advisor Form
       </h3>
     <div className="w-1/2">
-      <button className="text-black text-2xl text-bold items-center justify-center absolute left-[23rem] bottom-[31rem] hover:opacity-70 ease-in-out duration-300" onClick={sttFromMic}>
+      <button className="text-black text-2xl text-bold items-center justify-center absolute left-[25rem] bottom-[33rem] hover:opacity-70 ease-in-out duration-300" onClick={sttFromMic}>
         <img 
           src = {micButton}
           alt = "mic button"
@@ -220,11 +262,11 @@ const Expenses = () => {
         
       </div>
     </div>
-    <h4 className="text-lg text-black font-semibold text-center absolute bottom-[40rem] right-[19.5rem] decoration-[#f7ab0a]/50 underline">
+    <h4 className="text-lg text-black font-semibold text-center absolute bottom-[40rem] right-[15rem] decoration-[#f7ab0a]/50 underline">
           Your AI Transcript
-        </h4>
+    </h4>
     <div
-      className="contactInput bg-white z-02 placeholder-white absolute right-[12rem] bottom-[4rem] w-[28rem] h-[35rem] rounded-3xl"
+      className="contactInput bg-transparent z-02 placeholder-white absolute right-[12rem] bottom-[4rem] w-[22.5rem] h-[35rem] rounded-3xl"
       {...register('feedback')}
       // Make sure to change the ...register to what seems to become a get request from the AI API so that the AI transcript/output can be rendered
       // placeholder={displayText}
