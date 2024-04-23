@@ -43,7 +43,7 @@ const speech_config = SpeechConfig.fromSubscription(subscriptionKey, serviceRegi
 const audio_config = AudioConfig.fromDefaultSpeakerOutput();
 const s_synth = new SpeechSynthesizer(speech_config, audio_config);
 
-const key = "sk-proj-IpqqiGb9ko2PcPXewggBT3BlbkFJurR3ulwxZBfvPU4p19oi";
+// const key = "";
 
 
 const Expenses = () => {
